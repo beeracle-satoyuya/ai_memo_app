@@ -23,7 +23,7 @@ $save = function () {
     $memo->save();
 
     session()->flash('status', 'メモを作成しました。');
-    $this->redirect(route('memos.index'));
+    $this->redirect(route('memos.show', $memo));
 };
 
 ?>
