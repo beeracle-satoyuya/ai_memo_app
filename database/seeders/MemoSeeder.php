@@ -1,11 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Database\Seeders;
 
 use App\Models\Memo;
 use App\Models\User;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class MemoSeeder extends Seeder
@@ -15,15 +14,35 @@ class MemoSeeder extends Seeder
      */
     public function run(): void
     {
-        // 既存のユーザーを取得
-        $users = User::all();
+        // サンプルユーザーを作成
+        $user = User::factory()->create();
 
-        // ユーザーごとにメモを作成
-        $users->each(function ($user) {
-            Memo::factory()
-                ->count(5) // 各ユーザーに5つのメモを作成
-                ->for($user)
-                ->create();
-        });
+        // サンプルメモを作成
+        Memo::create([
+            'user_id' => $user->id,
+            'title' => 'PHP',
+            'content' => 'PHPは、Hypertext Preprocessorの略です。',
+        ]);
+
+        Memo::create([
+            'user_id' => $user->id,
+            'title' => 'HTML',
+            'content' => 'HTMLは、Hypertext Markup Languageの略です。',
+        ]);
+
+        Memo::create([
+            'user_id' => $user->id,
+            'title' => 'CSS',
+            'content' => "CSSは、\nCascading Style Sheets\nの略です。",
+        ]);
+
+        Memo::create([
+            'user_id' => $user->id,
+            'title' => '混在',
+            'content' => "Test123 てすとアイウエオｱｲｳｴｵ\n漢字！ＡＢＣ ａｂｃ １２３   😊✨",
+        ]);
+
+        // ランダムなメモを追加で作成
+        Memo::factory()->count(10)->create();
     }
 }

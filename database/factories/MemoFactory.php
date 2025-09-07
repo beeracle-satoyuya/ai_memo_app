@@ -1,10 +1,7 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,9 +17,9 @@ class MemoFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(),
-            'content' => fake()->paragraphs(3, true),
-            'user_id' => User::factory(),
+            'user_id' => \App\Models\User::factory(),
+            'title' => fake()->realText(20),
+            'content' => fake()->realText(200),
         ];
     }
 }
