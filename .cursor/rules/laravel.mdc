@@ -4,6 +4,9 @@ alwaysApply: true
 
 # Laravelルール
 
+## 多言語化
+- laravel-langから言語ファイルを取得 
+
 ## アーキテクチャ
 - MVCアーキテクチャの遵守
 - Fat-Componentアーキテクチャの採用
@@ -60,3 +63,5 @@ alwaysApply: true
   }
 }
 ```
+
+
