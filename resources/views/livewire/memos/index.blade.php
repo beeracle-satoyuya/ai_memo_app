@@ -13,7 +13,14 @@ state([
     <div class="max-w-7xl mx-auto p-6 lg:p-8">
         <div class="flex justify-between items-center">
             <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">メモ一覧</h1>
-            <button wire:click="$refresh" class="px-4 py-2 bg-gray-800 text-white rounded-md">更新</button>
+            <div class="flex space-x-4">
+                <a href="{{ route('memos.create') }}"
+                    class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    新規作成
+                </a>
+                <button wire:click="$refresh"
+                    class="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700">更新</button>
+            </div>
         </div>
         <!-- デバッグ情報 -->
         @if (auth()->check())

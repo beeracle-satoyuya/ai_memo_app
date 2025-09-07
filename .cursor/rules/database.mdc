@@ -15,7 +15,7 @@
 | id | BIGINT UNSIGNED | NO | PK | 主キー |
 | user_id | BIGINT UNSIGNED | NO | FK | ユーザーID |
 | title | VARCHAR(255) | NO | - | メモのタイトル |
-| body | TEXT | NO | - | メモの本文 |
+| content | TEXT | NO | - | メモの本文 |
 | created_at | TIMESTAMP | YES | - | 作成日時 |
 | updated_at | TIMESTAMP | YES | - | 更新日時 |
 
